@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400&display=swap");
-
 * {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	box-sizing: border-box;
 }
+
 body {
 	font-family: "M PLUS Rounded 1c", sans-serif;
 }
@@ -13,7 +13,7 @@ body {
 section.pricing-cards {
 	height: 100vh;
 	width: 100vw;
-	background-color: rgb(30, 30, 40);
+	background-color: #1e1e28;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -23,6 +23,17 @@ section.pricing-cards {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center 50%;
+	z-index: -1;
+}
+section.pricing-cards::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	background-color: rgba(0, 0, 0, 0.671);
+	z-index: 10;
 }
 
 .card {
@@ -30,29 +41,69 @@ section.pricing-cards {
 	width: 20vw;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	background-image: linear-gradient(
-		to right bottom,
-		rgba(255, 255, 255, 0.15),
-		rgba(255, 255, 255, 0.05),
-		rgba(255, 255, 255, 0.15)
-	);
-	transition: 0.5s padding ease, 0.4s width ease;
-	padding: 5px 30px;
+	align-items: stretch;
+	background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
+	transition: 0.5s margin-bottom ease;
+	padding: 0;
 	border: 1px solid rgba(255, 255, 255, 0.8);
-	border-radius: 8px;
+	border-radius: 12px;
+	text-align: center;
+	z-index: 100;
+}
+.card:not(.card:last-of-type) {
+	margin-right: 20px;
+}
+.card:hover {
+	background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.25));
+	margin-bottom: 30px;
+}
+.title {
+	text-transform: uppercase;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 5px 0 5px;
+	font-size: 20px;
+}
+.price {
+	font-size: 50px;
+	margin: 20px 0 20px;
+}
+.price::before {
+	content: "€";
+	font-size: 20px;
+	position: relative;
+	bottom: 30px;
+}
 
-	&:not(&:last-of-type) {
-		margin-right: 20px;
-	}
-	&:hover {
-		background-image: linear-gradient(
-			to right bottom,
-			rgba(255, 255, 255, 0.25),
-			rgba(255, 255, 255, 0.1),
-			rgba(255, 255, 255, 0.25)
-		);
-		padding: 15px 30px;
-		width: 25vw;
-	}
+ul {
+	text-align: left;
+	padding-left: 80px;
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+
+li i {
+	margin-right: 10px;
+	color: rgb(152, 23, 156);
+}
+
+button {
+	color: #fff;
+	margin: 20px 10px 10px;
+	padding: 15px;
+	margin: none;
+	outline: none;
+	background-color: rgb(127, 52, 156);
+	filter: brightness(0.8);
+	border-radius: 8px;
+	transition: 0.2s ease background-color;
+	font-size: 20px;
+}
+button i {
+	margin-right: 10px;
+}
+button:hover {
+	background-color: rgb(169, 78, 206);
 }
