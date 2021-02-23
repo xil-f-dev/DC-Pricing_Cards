@@ -42,6 +42,7 @@ section.pricing-cards::after {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	margin: 15px 15px 15px 0;
 	background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
 	transition: 0.5s margin-bottom ease;
 	padding: 0;
@@ -49,6 +50,7 @@ section.pricing-cards::after {
 	border-radius: 12px;
 	text-align: center;
 	z-index: 100;
+	min-width: 250px;
 }
 .card:not(.card:last-of-type) {
 	margin-right: 20px;
@@ -65,7 +67,7 @@ section.pricing-cards::after {
 }
 .price {
 	font-size: 50px;
-	margin: 20px 0 20px;
+	margin: 20px 0 10px;
 }
 .price::before {
 	content: "€";
@@ -74,9 +76,25 @@ section.pricing-cards::after {
 	bottom: 30px;
 }
 
+.price::after {
+	content: "/mois";
+	font-size: 20px;
+}
+
+.card hr {
+	width: 20%;
+	border: none;
+	border-top: 2px solid rgba(255, 255, 255, 0.7);
+}
+.card hr:first-of-type {
+	margin-left: 80%;
+	transform: translateY(2px);
+}
+
 ul {
 	text-align: left;
 	padding-left: 80px;
+	margin-top: 20px;
 }
 
 li {
